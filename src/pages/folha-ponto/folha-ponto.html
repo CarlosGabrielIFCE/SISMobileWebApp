@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Folha de Ponto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="text-align: center;">
+    <h6>{{ days }}, {{ date }}</h6>
+    <h3>{{ hour }}</h3>
+    <ion-card tappable (click)="baterPonto()">
+      <img src="assets/imgs/FingerPrint.png" />
+      <ion-card-content>
+        <p>
+          Toque aqui para registrar um novo ponto
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div style="text-align: center;">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div *ngIf="empregado.pontoEmpregado.hrEntrada != undefined && empregado.pontoEmpregado.hrEntrada != ''">
+            <p><b>{{ empregado.pontoEmpregado.hrEntrada }} <ion-icon name="arrow-up" style="color: green"></ion-icon>
+                </b>
+          </div>
+          <div *ngIf="empregado.pontoEmpregado.hrEntrada == undefined || empregado.pontoEmpregado.hrEntrada == ''">
+            <p><b>__:__ <ion-icon name="arrow-up" style="color: gray"></ion-icon></b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div
+            *ngIf="empregado.pontoEmpregado.hrIntervaloIda != undefined && empregado.pontoEmpregado.hrIntervaloIda != ''">
+            <p><b>{{ empregado.pontoEmpregado.hrIntervaloIda }} <ion-icon name="arrow-down" style="color: red">
+                </ion-icon>
+              </b>
+          </div>
+          <div
+            *ngIf="empregado.pontoEmpregado.hrIntervaloIda == undefined || empregado.pontoEmpregado.hrIntervaloIda == ''">
+            <p><b>__:__ <ion-icon name="arrow-down" style="color: gray"></ion-icon></b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div
+            *ngIf="empregado.pontoEmpregado.hrIntervaloVolta != undefined && empregado.pontoEmpregado.hrIntervaloVolta != ''">
+            <p><b>{{ empregado.pontoEmpregado.hrIntervaloVolta }} <ion-icon name="arrow-up" style="color: green">
+                </ion-icon>
+              </b>
+          </div>
+          <div
+            *ngIf="empregado.pontoEmpregado.hrIntervaloVolta == undefined || empregado.pontoEmpregado.hrIntervaloVolta == ''">
+            <p><b>__:__ <ion-icon name="arrow-up" style="color: gray"></ion-icon></b>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div *ngIf="empregado.pontoEmpregado.hrSaida != undefined && empregado.pontoEmpregado.hrSaida != ''">
+            <p><b>{{ empregado.pontoEmpregado.hrSaida }} <ion-icon name="arrow-down" style="color: red">
+                </ion-icon>
+              </b>
+          </div>
+          <div *ngIf="empregado.pontoEmpregado.hrSaida == undefined || empregado.pontoEmpregado.hrSaida == ''">
+            <p><b>__:__ <ion-icon name="arrow-down" style="color: gray"></ion-icon></b>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="empregado.pontoEmpregado.hrEntrada != undefined && empregado.pontoEmpregado.hrEntrada != '' && empregado.pontoEmpregado.hrIntervaloIda != undefined && empregado.pontoEmpregado.hrIntervaloIda != '' && empregado.pontoEmpregado.hrIntervaloVolta != undefined && empregado.pontoEmpregado.hrIntervaloVolta != '' && empregado.pontoEmpregado.hrSaida != undefined && empregado.pontoEmpregado.hrSaida != ''">
+    <!-- <p>Horas Trabalhadas: {{ horasTrabalhadas }}</p> -->
+  </div>
+  <ion-fab bottom right >
+      <button ion-fab><ion-icon name="add"></ion-icon></button>
+      <ion-fab-list side="top">
+         <button ion-fab (click)="atualizarSincronizacao()">
+            <ion-icon name="refresh"></ion-icon>
+            <ion-label>Sincronizar</ion-label>
+         </button>
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-content class="main-view">
+  <div class="overlay" (click)="dismiss()"></div>
+  <div class="modal_content">
+    <h3>Bater Ponto - {{ txBaterPonto }}</h3>
+    <ion-grid *ngIf="contadorPontoEletronico == 1">
+      <ion-row>
+        <ion-col col-11>
+          <ion-item>
+            <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="hrEntrada"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col col-1>
+            <ion-icon name="arrow-up" style="color: green;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="contadorPontoEletronico == 2">
+        <ion-row>
+          <ion-col col-11>
+            <ion-item>
+              <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="hrIntervaloIda"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-1>
+              <ion-icon name="arrow-down" style="color: red;"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="contadorPontoEletronico == 3">
+          <ion-row>
+            <ion-col col-11>
+              <ion-item>
+                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="hrIntervaloVolta"></ion-datetime>
+              </ion-item>
+            </ion-col>
+            <ion-col col-1>
+                <ion-icon name="arrow-up" style="color: green;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid *ngIf="contadorPontoEletronico == 4">
+            <ion-row>
+              <ion-col col-11>
+                <ion-item>
+                  <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="hrSaida"></ion-datetime>
+                </ion-item>
+              </ion-col>
+              <ion-col col-1>
+                  <ion-icon name="arrow-down" style="color: red;"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    <ion-buttons right>
+      <button ion-button clear (click)="dismiss()">Cancelar</button>
+      <button ion-button clear (click)="salvarPonto()">Salvar</button>
+    </ion-buttons>
+  </div>
+</ion-content>

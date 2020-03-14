@@ -1,0 +1,21 @@
+<ion-content padding>
+  <p style="text-align: center">
+    <img src="assets/imgs/logoSIS.jpg" />
+  </p>
+
+  <ion-card>
+    <ion-list>
+      <ion-item tappable>
+        <ion-input type="text" placeholder="Usuário" [(ngModel)]="user"></ion-input>
+      </ion-item>
+
+      <ion-item tappable>
+        
+        <ion-input type="password" placeholder="Senha" [(ngModel)]="senha"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <button ion-button full color="primary" (click)="login()">Entrar</button>
+  <p style="text-align: center"><button ion-button clear outline color="primary" (click)="encerrar()">Encerrar o APP</button></p>
+</ion-content>
